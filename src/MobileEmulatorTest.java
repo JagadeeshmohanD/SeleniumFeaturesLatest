@@ -18,14 +18,17 @@ public class MobileEmulatorTest {
     
     devTools.createSession();
     
-    //sends command to CDP method
+    //sends command to CDP method->CDP Method will invoke chrome browser as mobile screen
     devTools.send(Emulation.setDeviceMetricsOverride(600,1000,50,true, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty()
     		, Optional.empty(), Optional.empty()));
+    
     driver.get("https://rahulshettyacademy.com/angularAppdemo/");
+    
     driver.findElement(By.cssSelector(".navbar-toggler")).click();
     Thread.sleep(3000);
     
     driver.findElement(By.linkText("Library")).click();
+    //Network.getRequestPostData
     
     
    }
