@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class NewWindow {
+public class ScreenShotSE {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
@@ -18,6 +18,8 @@ public class NewWindow {
 		System.setProperty("webdriver.chrome.driver", "/Users/Jagadeesh Mohan D/Downloads/chromedriver/chromedriver.exe");
 	    ChromeDriver driver = new ChromeDriver();
 	    driver.get("https://rahulshettyacademy.com/angularpractice/");
+	    
+	    //Switching Window
 	    driver.switchTo().newWindow(WindowType.WINDOW);
 	    
 	    Set<String> handles=driver.getWindowHandles();
@@ -31,10 +33,14 @@ public class NewWindow {
 	    WebElement name=driver.findElement(By.cssSelector("[name='name']"));
 	    name.sendKeys(courseName);
 	    System.out.println(courseName);
+	    
+	    //Screen Shot
 	    File file=name.getScreenshotAs(OutputType.FILE);
 	    
 	    FileUtils.copyFile(file, new File("logo.png"));
-	    driver.close();
+	    
+	    //Get Height & Width
+	    driver.quit();
 	  
 
 	}
